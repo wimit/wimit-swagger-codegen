@@ -528,8 +528,8 @@ public class RubyClientCodegen extends DefaultCodegen implements CodegenConfig {
         // replace - with _ e.g. created-at => created_at
         name = name.replaceAll("-", "_"); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
 
-        // e.g. PhoneNumberApi.rb => phone_number_api.rb
-        return underscore(name) + "_api";
+        // e.g. PhoneNumberApi.rb => phone_number.rb
+        return underscore(name);
     }
 
     @Override
@@ -552,7 +552,7 @@ public class RubyClientCodegen extends DefaultCodegen implements CodegenConfig {
         if (name.length() == 0) {
             return "DefaultApi";
         }
-        // e.g. phone_number_api => PhoneNumberApi
+        // e.g. phone_number => PhoneNumberApi
         return camelize(name) + "Api";
     }
 
