@@ -1,0 +1,8 @@
+version: '3'
+services:
+  wimit-swagger-codegen:
+    build: .
+    image: wimit/wimit-swagger-codegen
+    working_dir: /usr/src/app
+    volumes:
+      - .:/usr/src/app
