@@ -1,4 +1,4 @@
-package io.swagger.codegen.languages;
+package uk.co.wimit.codegen.languages;
 
 import io.swagger.codegen.CliOption;
 import io.swagger.codegen.CodegenConfig;
