@@ -30,7 +30,7 @@ class ArrayMapObject < Petstore::Category
   end
 end
 
-describe 'BaseObject' do
+RSpec.describe 'BaseObject' do
   describe 'boolean values' do
     let(:obj) { Petstore::Cat.new({declawed: false}) }
 

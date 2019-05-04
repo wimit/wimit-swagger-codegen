@@ -11,7 +11,7 @@ require 'date'
 # Please update as you see appropriate
 {{#models}}
 {{#model}}
-describe '{{classname}}' do
+RSpec.describe '{{classname}}' do
   before do
     # run before each test
     @instance = {{moduleName}}::{{classname}}.new
