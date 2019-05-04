@@ -205,7 +205,7 @@ module {{moduleName}}
           end
         else
           # models, e.g. Pet
-          {{moduleName}}.const_get(return_type).new.tap do |model|
+          {{moduleName}}::API::Models.const_get(return_type).new.tap do |model|
             model.build_from_hash data
           end
         end

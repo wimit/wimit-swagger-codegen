@@ -5,6 +5,8 @@
 require 'date'
 
 module {{moduleName}}
+  module API
+    module Models
 {{#models}}
 {{#model}}
 {{#isEnum}}
@@ -15,4 +17,6 @@ module {{moduleName}}
 {{/isEnum}}
 {{/model}}
 {{/models}}
+    end
+  end
 end
