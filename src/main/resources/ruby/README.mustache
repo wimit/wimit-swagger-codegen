@@ -1,6 +1,6 @@
 # {{gemName}}
 
-{{moduleName}} - the Ruby gem for the {{appName}}
+{{moduleName}}::API - the Ruby gem for the {{appName}}
 
 {{#appDescription}}
 {{{appDescription}}}
@@ -76,7 +76,7 @@ require '{{{gemName}}}'
 {{/authMethods}}end
 {{/hasAuthMethods}}
 
-api_instance = {{{moduleName}}}::{{{classname}}}.new{{#hasParams}}
+api_instance = {{{moduleName}}}::API::{{{classname}}}.new{{#hasParams}}
 {{#vendorExtensions.x-codegen-hasRequiredParams}}{{#allParams}}{{#required}}
 {{{paramName}}} = {{{example}}} # {{{dataType}}} | {{{description}}}
 {{/required}}{{/allParams}}{{/vendorExtensions.x-codegen-hasRequiredParams}}{{#hasOptionalParams}}
@@ -100,12 +100,12 @@ All URIs are relative to *{{basePath}}*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-{{#apiInfo}}{{#apis}}{{#operations}}{{#operation}}*{{moduleName}}::{{classname}}* | [**{{operationId}}**]({{apiDocPath}}{{classname}}.md#{{operationId}}) | **{{httpMethod}}** {{path}} | {{#summary}}{{{summary}}}{{/summary}}
+{{#apiInfo}}{{#apis}}{{#operations}}{{#operation}}*{{moduleName}}::API::{{classname}}* | [**{{operationId}}**]({{apiDocPath}}{{classname}}.md#{{operationId}}) | **{{httpMethod}}** {{path}} | {{#summary}}{{{summary}}}{{/summary}}
 {{/operation}}{{/operations}}{{/apis}}{{/apiInfo}}
 
 ## Documentation for Models
 
-{{#models}}{{#model}} - [{{moduleName}}::{{classname}}]({{modelDocPath}}{{classname}}.md)
+{{#models}}{{#model}} - [{{moduleName}}::API::{{classname}}]({{modelDocPath}}{{classname}}.md)
 {{/model}}{{/models}}
 
 ## Documentation for Authorization

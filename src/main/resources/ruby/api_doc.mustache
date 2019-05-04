@@ -1,4 +1,4 @@
-# {{moduleName}}::{{classname}}{{#description}}
+# {{moduleName}}::API::{{classname}}{{#description}}
 {{description}}{{/description}}
 
 All URIs are relative to *{{basePath}}*
@@ -36,7 +36,7 @@ require '{{{gemName}}}'
 {{/authMethods}}end
 {{/hasAuthMethods}}
 
-api_instance = {{{moduleName}}}::{{{classname}}}.new{{#hasParams}}
+api_instance = {{{moduleName}}}::API::{{{classname}}}.new{{#hasParams}}
 {{#vendorExtensions.x-codegen-hasRequiredParams}}{{#allParams}}{{#required}}
 {{{paramName}}} = {{{example}}} # {{{dataType}}} | {{{description}}}
 {{/required}}{{/allParams}}{{/vendorExtensions.x-codegen-hasRequiredParams}}{{#hasOptionalParams}}
