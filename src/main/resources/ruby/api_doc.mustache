@@ -48,7 +48,7 @@ begin
 {{#summary}}  #{{{.}}}
 {{/summary}}  {{#returnType}}result = {{/returnType}}api_instance.{{{operationId}}}{{#hasParams}}({{#allParams}}{{#required}}{{{paramName}}}{{#vendorExtensions.x-codegen-hasMoreRequired}}, {{/vendorExtensions.x-codegen-hasMoreRequired}}{{/required}}{{/allParams}}{{#hasOptionalParams}}{{#vendorExtensions.x-codegen-hasRequiredParams}}, {{/vendorExtensions.x-codegen-hasRequiredParams}}opts{{/hasOptionalParams}}){{/hasParams}}{{#returnType}}
   p result{{/returnType}}
-rescue {{{moduleName}}}::ApiError => e
+rescue {{{moduleName}}}::API::Error => e
   puts "Exception when calling {{classname}}->{{{operationId}}}: #{e}"
 end
 ```
