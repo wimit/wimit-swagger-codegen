@@ -2,9 +2,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.swagger</groupId>
-    <artifactId>ruby-swagger-codegen</artifactId>
+    <artifactId>wimit-swagger-codegen</artifactId>
     <packaging>jar</packaging>
-    <name>ruby-swagger-codegen</name>
+    <name>wimit-swagger-codegen</name>
     <version>1.0.0</version>
     <build>
         <plugins>
