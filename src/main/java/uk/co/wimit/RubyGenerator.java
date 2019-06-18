@@ -238,7 +238,8 @@ public class RubyClientCodegen extends DefaultCodegen implements CodegenConfig {
         supportingFiles.add(new SupportingFile("gemspec.mustache", "", gemName + ".gemspec"));
         supportingFiles.add(new SupportingFile("gem.mustache", libFolder, gemName + ".rb"));
         String gemFolder = libFolder + File.separator + gemName;
-        supportingFiles.add(new SupportingFile("api_client.mustache", gemFolder, "api_client.rb"));
+        String apiFolder = gemFolder + File.separator + "api";
+        supportingFiles.add(new SupportingFile("client.mustache", apiFolder, "client.rb"));
         supportingFiles.add(new SupportingFile("api_error.mustache", gemFolder, "api_error.rb"));
         supportingFiles.add(new SupportingFile("configuration.mustache", gemFolder, "configuration.rb"));
         supportingFiles.add(new SupportingFile("version.mustache", gemFolder, "version.rb"));
@@ -253,7 +254,7 @@ public class RubyClientCodegen extends DefaultCodegen implements CodegenConfig {
         writeOptional(outputFolder, new SupportingFile("rspec.mustache", "", ".rspec"));
         writeOptional(outputFolder, new SupportingFile("spec_helper.mustache", specFolder, "spec_helper.rb"));
         writeOptional(outputFolder, new SupportingFile("configuration_spec.mustache", specFolder, "configuration_spec.rb"));
-        writeOptional(outputFolder, new SupportingFile("api_client_spec.mustache", specFolder, "api_client_spec.rb"));
+        writeOptional(outputFolder, new SupportingFile("client_spec.mustache", specFolder, "client_spec.rb"));
         // not including base object test as the moment as not all API has model
         //writeOptional(outputFolder, new SupportingFile("base_object_spec.mustache", specFolder, "base_object_spec.rb"));
     }
