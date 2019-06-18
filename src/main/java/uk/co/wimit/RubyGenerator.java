@@ -242,7 +242,7 @@ public class RubyClientCodegen extends DefaultCodegen implements CodegenConfig {
         supportingFiles.add(new SupportingFile("client.mustache", apiFolder, "client.rb"));
         supportingFiles.add(new SupportingFile("error.mustache", apiFolder, "error.rb"));
         supportingFiles.add(new SupportingFile("configuration.mustache", apiFolder, "configuration.rb"));
-        supportingFiles.add(new SupportingFile("version.mustache", gemFolder, "version.rb"));
+        supportingFiles.add(new SupportingFile("version.mustache", apiFolder, "version.rb"));
         supportingFiles.add(new SupportingFile("README.mustache", "", "README.md"));
         supportingFiles.add(new SupportingFile("git_push.sh.mustache", "", "git_push.sh"));
         supportingFiles.add(new SupportingFile("gitignore.mustache", "", ".gitignore"));
