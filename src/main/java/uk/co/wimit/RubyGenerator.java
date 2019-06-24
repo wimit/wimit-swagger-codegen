@@ -491,32 +491,32 @@ public class RubyClientCodegen extends DefaultCodegen implements CodegenConfig {
     }
 
     @Override
-    public String toModelFilename(String name) {
-        name = sanitizeName(name); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
+    public String toModelFilename(final String name) {
+        String modelFilename = sanitizeName(name);
 
         if (!StringUtils.isEmpty(modelNamePrefix)) {
-            name = modelNamePrefix + "_" + name;
+            modelFilename = modelNamePrefix + "_" + modelFilename;
         }
 
         if (!StringUtils.isEmpty(modelNameSuffix)) {
-            name = name + "_" + modelNameSuffix;
+            modelFilename = modelFilename + "_" + modelNameSuffix;
         }
         // model name cannot use reserved keyword, e.g. return
-        if (isReservedWord(name)) {
-            String filename = underscore("model_" + name);
-            LOGGER.warn(name + " (reserved word) cannot be used as model filename. Renamed to " + filename);
-            return filename;
+        if (isReservedWord(modelFilename)) {
+            String underscoredModelFilename = underscore("model_" + modelFilename);
+            LOGGER.warn(modelFilename + " (reserved word) cannot be used as model filename. Renamed to " + underscoredModelFilename);
+            return underscoredModelFilename;
         }
 
         // model name starts with number
-        if (name.matches("^\\d.*")) {
-            LOGGER.warn(name + " (model name starts with number) cannot be used as model name. Renamed to " + underscore("model_" + name));
-            name = "model_" + name; // e.g. 200Response => model_200_response
+        if (modelFilename.matches("^\\d.*")) {
+            LOGGER.warn(modelFilename + " (model name starts with number) cannot be used as model name. Renamed to " + underscore("model_" + modelFilename));
+            modelFilename = "model_" + modelFilename; // e.g. 200Response => model_200_response
         }
 
         // underscore the model file name
         // PhoneNumber.rb => phone_number.rb
-        return underscore(name);
+        return underscore(modelFilename);
     }
 
     @Override
