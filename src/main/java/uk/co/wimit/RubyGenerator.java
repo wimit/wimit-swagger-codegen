@@ -434,24 +434,24 @@ public class RubyClientCodegen extends DefaultCodegen implements CodegenConfig {
     }
 
     @Override
-    public String toVarName(String name) {
+    public String toVarName(final String name) {
         // sanitize name
-        name = sanitizeName(name); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
+        String varName = sanitizeName(name);
         // if it's all uppper case, convert to lower case
-        if (name.matches("^[A-Z_]*$")) {
-            name = name.toLowerCase();
+        if (varName.matches("^[A-Z_]*$")) {
+            varName = varName.toLowerCase();
         }
 
         // camelize (lower first character) the variable name
         // petId => pet_id
-        name = underscore(name);
+        varName = underscore(varName);
 
         // for reserved word or word starting with number, append _
-        if (isReservedWord(name) || name.matches("^\\d.*")) {
-            name = escapeReservedWord(name);
+        if (isReservedWord(varName) || varName.matches("^\\d.*")) {
+            varName = escapeReservedWord(varName);
         }
 
-        return name;
+        return varName;
     }
 
     @Override
