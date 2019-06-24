@@ -134,6 +134,7 @@ public class RubyClientCodegen extends DefaultCodegen implements CodegenConfig {
         Iterator<CliOption> itr = cliOptions.iterator();
         while (itr.hasNext()) {
             CliOption opt = itr.next();
+
             if (CodegenConstants.MODEL_PACKAGE.equals(opt.getOpt()) ||
                     CodegenConstants.API_PACKAGE.equals(opt.getOpt())) {
                 itr.remove();
@@ -141,8 +142,10 @@ public class RubyClientCodegen extends DefaultCodegen implements CodegenConfig {
         }
         cliOptions.add(new CliOption(GEM_NAME, "gem name (convention: underscore_case).").
                 defaultValue("swagger_client"));
+
         cliOptions.add(new CliOption(MODULE_NAME, "top module name (convention: CamelCase, usually corresponding" +
                 " to gem name).").defaultValue("SwaggerClient"));
+
         cliOptions.add(new CliOption(GEM_VERSION, "gem version.").defaultValue("1.0.0"));
 
         cliOptions.add(new CliOption(GEM_LICENSE, "gem license. ").
@@ -419,6 +422,7 @@ public class RubyClientCodegen extends DefaultCodegen implements CodegenConfig {
     public String getSwaggerType(Property p) {
         String swaggerType = super.getSwaggerType(p);
         String type;
+
         if (typeMapping.containsKey(swaggerType)) {
             type = typeMapping.get(swaggerType);
             if (languageSpecificPrimitives.contains(type)) {
@@ -427,9 +431,11 @@ public class RubyClientCodegen extends DefaultCodegen implements CodegenConfig {
         } else {
             type = swaggerType;
         }
+
         if (type == null) {
             return null;
         }
+
         return toModelName(type);
     }
 
@@ -437,6 +443,7 @@ public class RubyClientCodegen extends DefaultCodegen implements CodegenConfig {
     public String toVarName(final String name) {
         // sanitize name
         String varName = sanitizeName(name);
+
         // if it's all uppper case, convert to lower case
         if (varName.matches("^[A-Z_]*$")) {
             varName = varName.toLowerCase();
@@ -501,6 +508,7 @@ public class RubyClientCodegen extends DefaultCodegen implements CodegenConfig {
         if (!StringUtils.isEmpty(modelNameSuffix)) {
             modelFilename = modelFilename + "_" + modelNameSuffix;
         }
+
         // model name cannot use reserved keyword, e.g. return
         if (isReservedWord(modelFilename)) {
             String underscoredModelFilename = underscore("model_" + modelFilename);
@@ -553,6 +561,7 @@ public class RubyClientCodegen extends DefaultCodegen implements CodegenConfig {
         if (name.length() == 0) {
             return "Default";
         }
+
         // e.g. phone_number => PhoneNumber
         return camelize(name);
     }
