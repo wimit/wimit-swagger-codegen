@@ -525,12 +525,12 @@ public class RubyClientCodegen extends DefaultCodegen implements CodegenConfig {
     }
 
     @Override
-    public String toApiFilename(String name) {
+    public String toApiFilename(final String name) {
         // replace - with _ e.g. created-at => created_at
-        name = name.replaceAll("-", "_"); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
+        String apiFilename = name.replaceAll("-", "_");
 
         // e.g. PhoneNumber.rb => phone_number.rb
-        return underscore(name);
+        return underscore(apiFilename);
     }
 
     @Override
