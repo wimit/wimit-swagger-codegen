@@ -197,7 +197,7 @@ public class RubyClientCodegen extends DefaultCodegen implements CodegenConfig {
 
         if (additionalProperties.containsKey(GEM_VERSION)) {
             setGemVersion((String) additionalProperties.get(GEM_VERSION));
-        }else {
+        } else {
             // not set, pass the default value to template
             additionalProperties.put(GEM_VERSION, gemVersion);
         }
@@ -766,5 +766,4 @@ public class RubyClientCodegen extends DefaultCodegen implements CodegenConfig {
     public String escapeUnsafeCharacters(String input) {
         return input.replace("=end", "=_end").replace("=begin", "=_begin");
     }
-
 }
