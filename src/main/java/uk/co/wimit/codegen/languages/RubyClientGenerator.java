@@ -23,8 +23,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class RubyClientCodegen extends DefaultCodegen implements CodegenConfig {
-    private static final Logger LOGGER = LoggerFactory.getLogger(RubyClientCodegen.class);
+public class RubyClientGenerator extends DefaultCodegen implements CodegenConfig {
+    private static final Logger LOGGER = LoggerFactory.getLogger(RubyClientGenerator.class);
     public static final String GEM_NAME = "gemName";
     public static final String MODULE_NAME = "moduleName";
     public static final String GEM_VERSION = "gemVersion";
@@ -53,7 +53,7 @@ public class RubyClientCodegen extends DefaultCodegen implements CodegenConfig {
 
     protected static int emptyMethodNameCounter = 0;
 
-    public RubyClientCodegen() {
+    public RubyClientGenerator() {
         super();
 
         // clear import mapping (from default generator) as ruby does not use it
@@ -62,12 +62,12 @@ public class RubyClientCodegen extends DefaultCodegen implements CodegenConfig {
 
         modelPackage = "models";
         apiPackage = "api";
-        outputFolder = "generated-code" + File.separator + "ruby";
+        outputFolder = "generated-code" + File.separator + "ruby-client";
         modelTemplateFiles.put("model.mustache", ".rb");
         apiTemplateFiles.put("api.mustache", ".rb");
         modelDocTemplateFiles.put("model_doc.mustache", ".md");
         apiDocTemplateFiles.put("api_doc.mustache", ".md");
-        embeddedTemplateDir = templateDir = "ruby";
+        embeddedTemplateDir = templateDir = "ruby-client";
 
         modelTestTemplateFiles.put("model_test.mustache", ".rb");
         apiTestTemplateFiles.put("api_test.mustache", ".rb");
@@ -303,7 +303,7 @@ public class RubyClientCodegen extends DefaultCodegen implements CodegenConfig {
 
     @Override
     public String getName() {
-        return "ruby";
+        return "ruby-client";
     }
 
     @Override
