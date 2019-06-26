@@ -233,10 +233,11 @@ public class RubyClientGenerator extends DefaultCodegen implements CodegenConfig
         setModelPackage("models");
         setApiPackage("api");
 
-        supportingFiles.add(new SupportingFile("gemspec.mustache", "", gemName + ".gemspec"));
-        supportingFiles.add(new SupportingFile("gem.mustache", libFolder, gemName + ".rb"));
         String gemFolder = libFolder + File.separator + gemName;
         String apiFolder = gemFolder + File.separator + "api";
+
+        supportingFiles.add(new SupportingFile("gemspec.mustache", "", gemName + ".gemspec"));
+        supportingFiles.add(new SupportingFile("gem.mustache", libFolder, gemName + ".rb"));
         supportingFiles.add(new SupportingFile("client.mustache", apiFolder, "client.rb"));
         supportingFiles.add(new SupportingFile("error.mustache", apiFolder, "error.rb"));
         supportingFiles.add(new SupportingFile("configuration.mustache", apiFolder, "configuration.rb"));
