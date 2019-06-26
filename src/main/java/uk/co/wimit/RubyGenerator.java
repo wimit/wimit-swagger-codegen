@@ -169,6 +169,7 @@ public class RubyClientCodegen extends DefaultCodegen implements CodegenConfig {
         cliOptions.add(new CliOption(CodegenConstants.HIDE_GENERATION_TIMESTAMP, CodegenConstants.HIDE_GENERATION_TIMESTAMP_DESC).
                 defaultValue(Boolean.TRUE.toString()));
 
+        cliOptions.add(new CliOption(CodegenConstants.HTTP_USER_AGENT, CodegenConstants.HTTP_USER_AGENT_DESC));
     }
 
     @Override
@@ -227,6 +228,10 @@ public class RubyClientCodegen extends DefaultCodegen implements CodegenConfig {
 
         if (additionalProperties.containsKey(GEM_AUTHOR_EMAIL)) {
             setGemAuthorEmail((String) additionalProperties.get(GEM_AUTHOR_EMAIL));
+        }
+
+        if (additionalProperties.containsKey(CodegenConstants.HTTP_USER_AGENT)) {
+            setHttpUserAgent((String) additionalProperties.get(CodegenConstants.HTTP_USER_AGENT));
         }
 
         // make api and model doc path available in mustache template
