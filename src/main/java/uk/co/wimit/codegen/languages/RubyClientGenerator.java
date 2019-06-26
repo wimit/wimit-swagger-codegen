@@ -340,7 +340,7 @@ public class RubyClientGenerator extends DefaultCodegen implements CodegenConfig
 
     @Override
     public String modelFileFolder() {
-        return outputFolder + File.separator + libFolder + File.separator + gemName + File.separator + modelPackage.replace("/", File.separator);
+        return apiFileFolder() + File.separator + modelPackage.replace("/", File.separator);
     }
 
     @Override
