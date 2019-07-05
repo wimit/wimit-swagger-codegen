@@ -10,7 +10,7 @@ RSpec.describe {{moduleName}}::API::Client do
       context 'host' do
         it 'removes http from host' do
           {{moduleName}}::API.configure { |c| c.host = 'http://example.com' }
-          expect({{moduleName}}::Configuration.default.host).to eq('example.com')
+          expect({{moduleName}}::API::Configuration.default.host).to eq('example.com')
         end
 
         it 'removes https from host' do
@@ -20,35 +20,35 @@ RSpec.describe {{moduleName}}::API::Client do
 
         it 'removes trailing path from host' do
           {{moduleName}}::API.configure { |c| c.host = 'hobo.com/v4' }
-          expect({{moduleName}}::Configuration.default.host).to eq('hobo.com')
+          expect({{moduleName}}::API::Configuration.default.host).to eq('hobo.com')
         end
       end
 
       context 'base_path' do
         it "prepends a slash to base_path" do
           {{moduleName}}::API.configure { |c| c.base_path = 'v4/dog' }
-          expect({{moduleName}}::Configuration.default.base_path).to eq('/v4/dog')
+          expect({{moduleName}}::API::Configuration.default.base_path).to eq('/v4/dog')
         end
 
         it "doesn't prepend a slash if one is already there" do
           {{moduleName}}::API.configure { |c| c.base_path = '/v4/dog' }
-          expect({{moduleName}}::Configuration.default.base_path).to eq('/v4/dog')
+          expect({{moduleName}}::API::Configuration.default.base_path).to eq('/v4/dog')
         end
 
         it "ends up as a blank string if nil" do
           {{moduleName}}::API.configure { |c| c.base_path = nil }
-          expect({{moduleName}}::Configuration.default.base_path).to eq('')
+          expect({{moduleName}}::API::Configuration.default.base_path).to eq('')
         end
       end
     end
   end
 
   describe 'params_encoding in #build_request' do
-    let(:config) { {{moduleName}}::Configuration.new }
+    let(:config) { {{moduleName}}::API::Configuration.new }
     let(:client) { {{moduleName}}::API::Client.new(config) }
 
     it 'defaults to nil' do
-      expect({{moduleName}}::Configuration.default.params_encoding).to eq(nil)
+      expect({{moduleName}}::API::Configuration.default.params_encoding).to eq(nil)
       expect(config.params_encoding).to eq(nil)
 
       request = client.build_request(:get, '/test')
@@ -63,11 +63,11 @@ RSpec.describe {{moduleName}}::API::Client do
   end
 
   describe 'timeout in #build_request' do
-    let(:config) { {{moduleName}}::Configuration.new }
+    let(:config) { {{moduleName}}::API::Configuration.new }
     let(:client) { {{moduleName}}::API::Client.new(config) }
 
     it 'defaults to 0' do
-      expect({{moduleName}}::Configuration.default.timeout).to eq(0)
+      expect({{moduleName}}::API::Configuration.default.timeout).to eq(0)
       expect(config.timeout).to eq(0)
 
       request = client.build_request(:get, '/test')
