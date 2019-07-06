@@ -40,7 +40,7 @@ public class RubyClientGenerator extends DefaultCodegen implements CodegenConfig
     protected String gemAuthor = "";
     protected String gemAuthorEmail = "";
     protected String apiDocPath = "docs/";
-    protected String modelDocPath = "docs/";
+    protected String modelDocPath = "docs/models/";
 
     protected static int emptyMethodNameCounter = 0;
 
