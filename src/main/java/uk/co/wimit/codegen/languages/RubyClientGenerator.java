@@ -360,7 +360,7 @@ public class RubyClientGenerator extends DefaultCodegen implements CodegenConfig
 
     @Override
     public String modelDocFileFolder() {
-        return (apiDocFileFolder() + "/" + modelDocPath).replace('/', File.separatorChar);
+        return (outputFolder + "/" + modelDocPath).replace('/', File.separatorChar);
     }
 
     @Override
