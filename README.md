@@ -2,7 +2,7 @@
 
 [![CircleCI](https://circleci.com/gh/wimit/wimit-swagger-codegen/tree/master.svg?style=shield&circle-token=fbad2fd1feb43699e95169d7fd48f0b610e2971a)](https://circleci.com/gh/wimit/wimit-swagger-codegen/tree/master)
 
-A Swagger Code generator for Wimit.
+A [Swagger Code generator](https://github.com/swagger-api/swagger-codegen) for Wimit.
 
 ## How do I use this?
 
