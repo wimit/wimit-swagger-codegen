@@ -4,9 +4,6 @@
         def build_from_hash(attributes)
           return nil unless attributes.is_a?(Hash)
 
-          # remove envelope from attributes
-          attributes = attributes.values.first
-
           self.class.swagger_types.each_pair do |key, type|
             if type =~ /\AArray<(.*)>/i
               # check to ensure the input is an array given that the the attribute
