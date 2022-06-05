@@ -14,7 +14,7 @@ COPY . ${APP_DIR}
 
 RUN mvn clean package
 
-FROM swaggerapi/swagger-codegen-cli:2.4.5
+FROM swaggerapi/swagger-codegen-cli:2.4.27
 
 # Setup environment
 ENV APP_DIR /usr/src/app
